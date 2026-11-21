@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Inicio | Control de Biblioteca{% endblock %}
+{% block content %}
+<div class="p-4 p-md-5 mb-4 bg-white rounded-3 shadow-sm">
+  <div class="container-fluid py-2">
+    <h1 class="display-6 fw-bold">Control de Biblioteca</h1>
+    <p class="col-md-9 fs-5">Administra autores, categorías, libros, lectores y préstamos desde una sola aplicación.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('libros.listar') }}">Ver libros</a>
+  </div>
+</div>
+{% endblock %}
