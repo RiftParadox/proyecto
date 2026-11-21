@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">Modelo entidad-relación de Control de Biblioteca</title>
+  <desc id="description">Cinco tablas relacionadas: autores y categorías se relacionan uno a muchos con libros; libros y lectores se relacionan uno a muchos con préstamos.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #fff; stroke: #2563eb; stroke-width: 2; rx: 12; }
+      .head { fill: #2563eb; }
+      .title { fill: #fff; font: 700 20px Arial, sans-serif; }
+      .field { fill: #172033; font: 15px Arial, sans-serif; }
+      .relation { stroke: #64748b; stroke-width: 3; fill: none; }
+      .label { fill: #334155; font: 700 14px Arial, sans-serif; }
+      .heading { fill: #0f172a; font: 700 28px Arial, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text class="heading" x="600" y="46" text-anchor="middle">Control de Biblioteca · Modelo entidad-relación</text>
+
+  <path class="relation" d="M300 226 H445" marker-end="url(#arrow)"/>
+  <text class="label" x="360" y="214">1 : N</text>
+  <path class="relation" d="M300 500 H445" marker-end="url(#arrow)"/>
+  <text class="label" x="360" y="488">1 : N</text>
+  <path class="relation" d="M690 235 H820 V318 H900" marker-end="url(#arrow)"/>
+  <text class="label" x="790" y="225">1 : N</text>
+  <path class="relation" d="M690 510 H820 V400 H900" marker-end="url(#arrow)"/>
+  <text class="label" x="790" y="530">1 : N</text>
+
+  <g transform="translate(55 115)">
+    <rect class="card" width="245" height="225"/>
+    <path class="head" d="M12 0 H233 Q245 0 245 12 V43 H0 V12 Q0 0 12 0Z"/>
+    <text class="title" x="18" y="29">AUTORES</text>
+    <text class="field" x="18" y="73">PK id_autor SERIAL</text>
+    <text class="field" x="18" y="105">nombre VARCHAR(120) NOT NULL</text>
+    <text class="field" x="18" y="137">nacionalidad VARCHAR(80)</text>
+  </g>
+  <g transform="translate(55 390)">
+    <rect class="card" width="245" height="225"/>
+    <path class="head" d="M12 0 H233 Q245 0 245 12 V43 H0 V12 Q0 0 12 0Z"/>
+    <text class="title" x="18" y="29">CATEGORIAS</text>
+    <text class="field" x="18" y="73">PK id_categoria SERIAL</text>
+    <text class="field" x="18" y="105">nombre VARCHAR(80) UNIQUE</text>
+    <text class="field" x="18" y="137">descripcion TEXT</text>
+  </g>
+  <g transform="translate(445 190)">
+    <rect class="card" width="245" height="300"/>
+    <path class="head" d="M12 0 H233 Q245 0 245 12 V43 H0 V12 Q0 0 12 0Z"/>
+    <text class="title" x="18" y="29">LIBROS</text>
+    <text class="field" x="18" y="73">PK id_libro SERIAL</text>
+    <text class="field" x="18" y="105">titulo VARCHAR(180)</text>
+    <text class="field" x="18" y="137">isbn VARCHAR(30) UNIQUE</text>
+    <text class="field" x="18" y="169">anio_publicacion INT CHECK &gt; 0</text>
+    <text class="field" x="18" y="201">stock_total INT CHECK &gt;= 0</text>
+    <text class="field" x="18" y="233">FK id_autor → autores</text>
+    <text class="field" x="18" y="265">FK id_categoria → categorias</text>
+  </g>
+  <g transform="translate(900 115)">
+    <rect class="card" width="245" height="245"/>
+    <path class="head" d="M12 0 H233 Q245 0 245 12 V43 H0 V12 Q0 0 12 0Z"/>
+    <text class="title" x="18" y="29">PRESTAMOS</text>
+    <text class="field" x="18" y="73">PK id_prestamo SERIAL</text>
+    <text class="field" x="18" y="105">FK id_libro → libros</text>
+    <text class="field" x="18" y="137">FK id_lector → lectores</text>
+    <text class="field" x="18" y="169">fecha_prestamo DATE</text>
+    <text class="field" x="18" y="201">fecha_devolucion_prevista DATE</text>
+    <text class="field" x="18" y="233">devuelto BOOLEAN</text>
+  </g>
+  <g transform="translate(900 430)">
+    <rect class="card" width="245" height="225"/>
+    <path class="head" d="M12 0 H233 Q245 0 245 12 V43 H0 V12 Q0 0 12 0Z"/>
+    <text class="title" x="18" y="29">LECTORES</text>
+    <text class="field" x="18" y="73">PK id_lector SERIAL</text>
+    <text class="field" x="18" y="105">nombre_completo VARCHAR(140)</text>
+    <text class="field" x="18" y="137">correo VARCHAR(140) UNIQUE</text>
+    <text class="field" x="18" y="169">telefono VARCHAR(30)</text>
+    <text class="field" x="18" y="201">activo BOOLEAN</text>
+  </g>
+</svg>
