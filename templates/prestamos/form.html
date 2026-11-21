@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }} | Control de Biblioteca{% endblock %}
+{% block content %}
+<h1 class="h2 mb-3">{{ titulo }}</h1>
+<form method="post" class="bg-white p-4 rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label" for="id_libro">Libro</label>
+    <select class="form-select" id="id_libro" name="id_libro" required>
+      <option value="">Selecciona un libro</option>
+      {% for libro in libros %}<option value="{{ libro.id_libro }}" {% if prestamo.id_libro == libro.id_libro %}selected{% endif %}>{{ libro.titulo }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_lector">Lector</label>
+    <select class="form-select" id="id_lector" name="id_lector" required>
+      <option value="">Selecciona un lector</option>
+      {% for lector in lectores %}<option value="{{ lector.id_lector }}" {% if prestamo.id_lector == lector.id_lector %}selected{% endif %}>{{ lector.nombre_completo }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label class="form-label" for="fecha_prestamo">Fecha del préstamo</label>
+      <input class="form-control" type="date" id="fecha_prestamo" name="fecha_prestamo" required value="{{ prestamo.fecha_prestamo or '' }}">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label class="form-label" for="fecha_devolucion_prevista">Devolución prevista</label>
+      <input class="form-control" type="date" id="fecha_devolucion_prevista" name="fecha_devolucion_prevista" required value="{{ prestamo.fecha_devolucion_prevista or '' }}">
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="devuelto">Estado</label>
+    <select class="form-select" id="devuelto" name="devuelto" required>
+      <option value="false" {% if prestamo.devuelto is not sameas true %}selected{% endif %}>Pendiente</option>
+      <option value="true" {% if prestamo.devuelto %}selected{% endif %}>Devuelto</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Guardar</button>
+  <a class="btn btn-outline-secondary" href="{{ url_for('prestamos.listar') }}">Cancelar</a>
+</form>
+{% endblock %}
