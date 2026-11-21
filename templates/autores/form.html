@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }} | Control de Biblioteca{% endblock %}
+{% block content %}
+<h1 class="h2 mb-3">{{ titulo }}</h1>
+<form method="post" class="bg-white p-4 rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label" for="nombre">Nombre</label>
+    <input class="form-control" id="nombre" name="nombre" maxlength="120" required value="{{ autor.nombre or '' }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="nacionalidad">Nacionalidad</label>
+    <input class="form-control" id="nacionalidad" name="nacionalidad" maxlength="80" required value="{{ autor.nacionalidad or '' }}">
+  </div>
+  <button class="btn btn-primary" type="submit">Guardar</button>
+  <a class="btn btn-outline-secondary" href="{{ url_for('autores.listar') }}">Cancelar</a>
+</form>
+{% endblock %}

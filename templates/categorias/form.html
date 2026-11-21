@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }} | Control de Biblioteca{% endblock %}
+{% block content %}
+<h1 class="h2 mb-3">{{ titulo }}</h1>
+<form method="post" class="bg-white p-4 rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label" for="nombre">Nombre</label>
+    <input class="form-control" id="nombre" name="nombre" maxlength="80" required value="{{ categoria.nombre or '' }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="descripcion">Descripción</label>
+    <textarea class="form-control" id="descripcion" name="descripcion" rows="3">{{ categoria.descripcion or '' }}</textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Guardar</button>
+  <a class="btn btn-outline-secondary" href="{{ url_for('categorias.listar') }}">Cancelar</a>
+</form>
+{% endblock %}
