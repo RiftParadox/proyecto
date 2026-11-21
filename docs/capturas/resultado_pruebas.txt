@@ -1,0 +1,26 @@
+test_01_autores_crear_listar_editar_eliminar (test_functional.BibliotecaFunctionalTests.test_01_autores_crear_listar_editar_eliminar) ... ok
+test_02_autores_rechaza_nombre_vacio (test_functional.BibliotecaFunctionalTests.test_02_autores_rechaza_nombre_vacio) ... ok
+test_03_autores_no_se_elimina_si_tiene_libros (test_functional.BibliotecaFunctionalTests.test_03_autores_no_se_elimina_si_tiene_libros) ... [2026-11-19 22:22:56,548] WARNING in db: Restricción de base de datos (23503)
+ok
+test_04_categorias_crear_listar_editar_eliminar (test_functional.BibliotecaFunctionalTests.test_04_categorias_crear_listar_editar_eliminar) ... ok
+test_05_categorias_rechaza_nombre_duplicado (test_functional.BibliotecaFunctionalTests.test_05_categorias_rechaza_nombre_duplicado) ... [2026-11-19 22:22:56,930] WARNING in db: Restricción de base de datos (23505)
+ok
+test_06_categorias_no_se_elimina_si_tiene_libros (test_functional.BibliotecaFunctionalTests.test_06_categorias_no_se_elimina_si_tiene_libros) ... [2026-11-19 22:22:56,998] WARNING in db: Restricción de base de datos (23503)
+ok
+test_07_libros_crear_listar_editar_eliminar (test_functional.BibliotecaFunctionalTests.test_07_libros_crear_listar_editar_eliminar) ... ok
+test_08_libros_rechaza_isbn_invalido (test_functional.BibliotecaFunctionalTests.test_08_libros_rechaza_isbn_invalido) ... ok
+test_09_libros_no_se_elimina_si_tiene_prestamos (test_functional.BibliotecaFunctionalTests.test_09_libros_no_se_elimina_si_tiene_prestamos) ... [2026-11-19 22:22:57,676] WARNING in db: Restricción de base de datos (23503)
+ok
+test_10_lectores_crear_listar_editar_eliminar (test_functional.BibliotecaFunctionalTests.test_10_lectores_crear_listar_editar_eliminar) ... ok
+test_11_lectores_rechaza_correo_invalido (test_functional.BibliotecaFunctionalTests.test_11_lectores_rechaza_correo_invalido) ... ok
+test_12_lectores_no_se_elimina_si_tiene_prestamos (test_functional.BibliotecaFunctionalTests.test_12_lectores_no_se_elimina_si_tiene_prestamos) ... [2026-11-19 22:22:58,213] WARNING in db: Restricción de base de datos (23503)
+ok
+test_13_prestamos_crear_listar_editar_eliminar (test_functional.BibliotecaFunctionalTests.test_13_prestamos_crear_listar_editar_eliminar) ... ok
+test_14_prestamos_rechaza_fecha_invertida (test_functional.BibliotecaFunctionalTests.test_14_prestamos_rechaza_fecha_invertida) ... ok
+test_15_prestamos_rechaza_claves_foraneas_inexistentes (test_functional.BibliotecaFunctionalTests.test_15_prestamos_rechaza_claves_foraneas_inexistentes) ... [2026-11-19 22:22:58,972] WARNING in db: Restricción de base de datos (23503)
+ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 2.862s
+
+OK
