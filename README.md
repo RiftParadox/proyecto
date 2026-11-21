@@ -4,7 +4,7 @@ Aplicación web sencilla para administrar autores, categorías, libros, lectores
 
 ## Información del proyecto
 
-- **Integrantes:** agregar los nombres completos de los integrantes del grupo.
+- **Integrantes:** Luz Marquez y Luis Garduño
 - **Tema:** gestión de una biblioteca (catálogo, lectores y préstamos).
 - **Diagrama MER:** [ver diagrama](docs/mer.svg).
 - **Diccionario de datos y normalización:** [ver documento](docs/diccionario_datos.md).
@@ -15,10 +15,6 @@ Aplicación web sencilla para administrar autores, categorías, libros, lectores
 - Python 3.10 o superior
 - Docker con Docker Compose
 
-## Preparación
-
-1. Copia `.env.example` a `.env` y ajusta `POSTGRES_PASSWORD` y `SECRET_KEY`.
-2. Desde la raíz del proyecto, inicia PostgreSQL:
 
    ```powershell
    docker compose up -d
