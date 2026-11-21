@@ -2,17 +2,11 @@
 
 Aplicación web sencilla para administrar autores, categorías, libros, lectores y préstamos usando Python 3, Flask y PostgreSQL.
 
-<<<<<<< HEAD
-## Información del proyecto
-
-- **Integrantes:** Luz Marquez y Luis Garduño
-=======
 
 
 ## Información del proyecto
 
 - **Integrantes:** agregar los nombres completos de los integrantes del grupo.
->>>>>>> be90282 (fix: evitar conflicto con PostgreSQL local en Windows)
 - **Tema:** gestión de una biblioteca (catálogo, lectores y préstamos).
 - **Diagrama MER:** [ver diagrama](docs/mer.svg).
 - **Diccionario de datos y normalización:** [ver documento](docs/diccionario_datos.md).
@@ -23,13 +17,10 @@ Aplicación web sencilla para administrar autores, categorías, libros, lectores
 - Python 3.10 o superior
 - Docker con Docker Compose
 
-<<<<<<< HEAD
-=======
 ## Preparación
 
 1. Copia `.env.example` a `.env` y ajusta `POSTGRES_PASSWORD` y `SECRET_KEY`. Por defecto, PostgreSQL usa el puerto local `5432`; si ya está ocupado, configura `DB_PORT` y `DB_HOST_PORT` con el mismo puerto local disponible.
 2. Desde la raíz del proyecto, inicia PostgreSQL:
->>>>>>> be90282 (fix: evitar conflicto con PostgreSQL local en Windows)
 
    ```powershell
    docker compose up -d
