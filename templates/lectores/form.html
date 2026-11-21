@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }} | Control de Biblioteca{% endblock %}
+{% block content %}
+<h1 class="h2 mb-3">{{ titulo }}</h1>
+<form method="post" class="bg-white p-4 rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label" for="nombre_completo">Nombre completo</label>
+    <input class="form-control" id="nombre_completo" name="nombre_completo" maxlength="140" required value="{{ lector.nombre_completo or '' }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="correo">Correo electrónico</label>
+    <input class="form-control" type="email" id="correo" name="correo" maxlength="140" required value="{{ lector.correo or '' }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="telefono">Teléfono</label>
+    <input class="form-control" id="telefono" name="telefono" maxlength="30" value="{{ lector.telefono or '' }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="activo">Estado</label>
+    <select class="form-select" id="activo" name="activo" required>
+      <option value="true" {% if lector.activo %}selected{% endif %}>Activo</option>
+      <option value="false" {% if lector.activo is defined and not lector.activo %}selected{% endif %}>Inactivo</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Guardar</button>
+  <a class="btn btn-outline-secondary" href="{{ url_for('lectores.listar') }}">Cancelar</a>
+</form>
+{% endblock %}

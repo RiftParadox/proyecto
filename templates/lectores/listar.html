@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Lectores | Control de Biblioteca{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h2">Lectores</h1>
+  <a class="btn btn-primary" href="{{ url_for('lectores.crear') }}">Nuevo lector</a>
+</div>
+<div class="table-responsive bg-white rounded shadow-sm">
+  <table class="table table-striped mb-0">
+    <thead><tr><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Estado</th><th class="text-end">Acciones</th></tr></thead>
+    <tbody>
+      {% for lector in lectores %}
+      <tr>
+        <td>{{ lector.nombre_completo }}</td><td>{{ lector.correo }}</td>
+        <td>{{ lector.telefono or '—' }}</td>
+        <td>{% if lector.activo %}<span class="badge text-bg-success">Activo</span>{% else %}<span class="badge text-bg-secondary">Inactivo</span>{% endif %}</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('lectores.editar', id_lector=lector.id_lector) }}">Editar</a>
+          <form class="d-inline" method="post" action="{{ url_for('lectores.eliminar', id_lector=lector.id_lector) }}" onsubmit="return confirm('¿Eliminar este lector?');">
+            <button class="btn btn-sm btn-outline-danger" type="submit">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}<tr><td colspan="5" class="text-center py-4">No hay lectores registrados.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
