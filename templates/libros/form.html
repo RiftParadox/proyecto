@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }} | Control de Biblioteca{% endblock %}
+{% block content %}
+<h1 class="h2 mb-3">{{ titulo }}</h1>
+<form method="post" class="bg-white p-4 rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label" for="titulo">Título</label>
+    <input class="form-control" id="titulo" name="titulo" maxlength="180" required value="{{ libro.titulo or '' }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="isbn">ISBN</label>
+    <input class="form-control" id="isbn" name="isbn" maxlength="30" required value="{{ libro.isbn or '' }}">
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label class="form-label" for="anio_publicacion">Año de publicación</label>
+      <input class="form-control" type="number" id="anio_publicacion" name="anio_publicacion" min="1" required value="{{ libro.anio_publicacion or '' }}">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label class="form-label" for="stock_total">Stock total</label>
+      <input class="form-control" type="number" id="stock_total" name="stock_total" min="0" required value="{{ libro.stock_total if libro.stock_total is defined else 1 }}">
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_autor">Autor</label>
+    <select class="form-select" id="id_autor" name="id_autor" required>
+      <option value="">Selecciona un autor</option>
+      {% for autor in autores %}<option value="{{ autor.id_autor }}" {% if libro.id_autor == autor.id_autor %}selected{% endif %}>{{ autor.nombre }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_categoria">Categoría</label>
+    <select class="form-select" id="id_categoria" name="id_categoria" required>
+      <option value="">Selecciona una categoría</option>
+      {% for categoria in categorias %}<option value="{{ categoria.id_categoria }}" {% if libro.id_categoria == categoria.id_categoria %}selected{% endif %}>{{ categoria.nombre }}</option>{% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Guardar</button>
+  <a class="btn btn-outline-secondary" href="{{ url_for('libros.listar') }}">Cancelar</a>
+</form>
+{% endblock %}
